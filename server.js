@@ -2,8 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+var port = process.env.PORT || 3000;
 var app = express();
 // const router = express.Router();
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -135,5 +137,5 @@ app.get('/flags/:id', async (req, res) => {
     }
 });
 
-app.listen(3000);
+app.set('port', process.env.PORT || 8080);
 module.exports = Flags;
