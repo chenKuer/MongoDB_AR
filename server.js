@@ -68,7 +68,7 @@ const Flags = mongoose.model('flags', flagSchema);
 //     console.log('flag saved successfully ');
 // });
 app.get('/', (req, res)=> {
-    req.send("Hello Fishman");
+    res.send("Hello Fishman");
 });
 //get all flags
 app.get('/flags', async (req, res) => {
@@ -140,5 +140,5 @@ app.get('/flags/:id', async (req, res) => {
 });
 
 // 
-app.listen(port,() => console.log(`Listening on ${ PORT }`));
+app.listen(port,() => console.log(`Listening on ${ port }`));
 // module.exports = Flags;
