@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 var app = express();
 // const router = express.Router();
 
@@ -67,7 +67,9 @@ const Flags = mongoose.model('flags', flagSchema);
 //     if(err) throw err;
 //     console.log('flag saved successfully ');
 // });
-
+app.get('/', (req, res)=> {
+    req.send("Hello Fishman");
+});
 //get all flags
 app.get('/flags', async (req, res) => {
     try {
@@ -137,5 +139,6 @@ app.get('/flags/:id', async (req, res) => {
     }
 });
 
-app.set('port', process.env.PORT || 8080);
-module.exports = Flags;
+// 
+app.listen(port,() => console.log(`Listening on ${ PORT }`));
+// module.exports = Flags;
